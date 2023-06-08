@@ -11,8 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('vacantes', function (Blueprint $table) {
+        Schema::create('categorias', function (Blueprint $table) {
             $table->uuid('id')->index();
+            $table->string('categoria');
             $table->timestamps();
         });
     }
@@ -22,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('vacantes');
+        Schema::dropIfExists('categorias');
     }
 };
