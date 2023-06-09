@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Model;
 class Vacante extends Model
 {
     use HasFactory, HasUuids;
-
     protected $fillable = [
         'titulo',
         'salario_id',
@@ -19,5 +18,9 @@ class Vacante extends Model
         'descripcion',
         'imagen',
         'user_id'
+    ];
+
+    protected $casts = [
+        'ultimo_dia' => 'date',
     ];
 }
