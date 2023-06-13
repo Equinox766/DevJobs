@@ -15,7 +15,8 @@
                     </p>
                 </div>
                 <div class="flex flex-col md:flex-row items-stretch gap-3 mt-5 md:mt-0">
-                    <a href="#" class="bg-indigo-800 py-2 px-4 text-white rounded-lg text-xs font-bold uppercase text-center">
+                    <a href="{{route('candidatos.index', $vacante)}}" class="bg-indigo-800 py-2 px-4 text-white rounded-lg text-xs font-bold uppercase text-center">
+                       {{$vacante->candidatos->count()}}
                         Candidatos
                     </a>
                     <a href="{{ route('vacantes.edit', $vacante->id) }}" class="bg-yellow-600 py-2 px-4 text-white rounded-lg text-xs font-bold uppercase text-center">

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Home\VacanteController;
 use App\Http\Controllers\NotificacionController;
+use App\Http\Controllers\User\CandidatoController;
 use App\Http\Controllers\User\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,7 @@ Route::get('/dashboard', [VacanteController::class, 'index'])->middleware(['auth
 Route::get('/vacantes/create', [VacanteController::class, 'create'])->middleware(['auth', 'verified'])->name('vacantes.create');
 Route::get('/vacantes/{vacante}/edit', [VacanteController::class, 'edit'])->middleware(['auth', 'verified'])->name('vacantes.edit');
 Route::get('/vacantes/{vacante}', [VacanteController::class, 'show'])->name('vacantes.show');
+Route::get('/candidatos/{vacante}', [CandidatoController::class, 'index'])->name('candidatos.index');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
