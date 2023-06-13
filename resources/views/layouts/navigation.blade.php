@@ -99,14 +99,11 @@
                     {{ __('Crear Vacante') }}
                 </x-responsive-nav-link>
                 @if(auth()->user()->rol === 2)
-                    <div class="flex gap-2 items-center p-3">
-                        <a class="w-7 h-7 bg-indigo-500 text-white hover:bg-indigo-800 rounded-full flex flex-col justify-center items-center text-sm font-extrabold" href="{{route('notificaciones')}}">
-                            {{auth()->user()->unreadNotifications->count()}}
-                        </a>
-                        <p class="block w-full pl-3 pr-4 py-2 border-l-4 border-transparent text-left text-base font-medium text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-600 focus:outline-none focus:text-gray-800 dark:focus:text-gray-200 focus:bg-gray-50 dark:focus:bg-gray-700 focus:border-gray-300 dark:focus:border-gray-600 transition duration-150 ease-in-out">
-                            @choice('Notificación|Notificaciones',auth()->user()->unreadNotifications->count())
-                        </p>
-                    </div>
+                <x-responsive-nav-link class="flex flex-row justify-between" :href="route('notificaciones')" :active="request()->routeIs('notificaciones')">
+                        @choice('Notificación|Notificaciones',auth()->user()->unreadNotifications->count())
+                        <span class="w-7 h-7 bg-indigo-500 text-white hover:bg-indigo-800 rounded-full flex flex-col justify-center items-center text-sm font-extrabold">{{auth()->user()->unreadNotifications->count()}}</span>
+                </x-responsive-nav-link>
+
                 @endif
             </div>
 
