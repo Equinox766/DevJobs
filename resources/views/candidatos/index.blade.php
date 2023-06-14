@@ -15,7 +15,7 @@
                     <div class="md:flex md:justify-between p-5">
                         <ul class="divide-y divide-gray-700 w-full">
                             @forelse($vacante->candidatos as $candidato)
-                                <li class="p-3 flex items-center">
+                                <li class="p-3 md:flex md:justify-between md:items-center">
                                     <div class="flex-1">
                                         <p class="text-xl font-medium text-gray-300">{{$candidato->user->name}}</p>
                                         <p class="text-sm text-gray-300">{{$candidato->user->email}}</p>
@@ -23,8 +23,8 @@
                                             Dia que se postulo: <span class="font-normal">{{$candidato->created_at->diffForHumans()}}</span>
                                         </p>
                                     </div>
-                                    <div>
-                                        <a class="inline-flex items-center shadow-md px-2.5 py-0.5 border border-indigo-600 text-sm leading-5 font-medium rounded-full text-white bg-indigo-950 hover:bg-indigo-800"
+                                    <div class="mt-5 md:mt-0">
+                                        <a class="shadow-md px-2.5 py-0.5 border border-indigo-600 text-sm leading-5 font-medium rounded-full text-white bg-indigo-950 hover:bg-indigo-800 block text-center "
                                            href="{{asset('storage/cv/' . $candidato->cv)}}"
                                            target="_blank"
                                            rel="noreferrer noopener"

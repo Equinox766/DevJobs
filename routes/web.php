@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\Home\HomeController;
+use App\Http\Controllers\Home\NotificacionController;
 use App\Http\Controllers\Home\VacanteController;
-use App\Http\Controllers\NotificacionController;
 use App\Http\Controllers\User\CandidatoController;
 use App\Http\Controllers\User\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -16,9 +17,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/', HomeController::class)->name('home');
 
 Route::get('/dashboard', [VacanteController::class, 'index'])->middleware(['auth', 'verified', 'rol.reclutador'])->name('vacantes.index');
 Route::get('/vacantes/create', [VacanteController::class, 'create'])->middleware(['auth', 'verified'])->name('vacantes.create');
